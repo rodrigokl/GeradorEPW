@@ -1,0 +1,171 @@
+ #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+#COMMENTS 1,Custom/User Format -- Desenvolvido pelo Laboratório de Conforto e Eficiência Energética - LABCEE
+#COMMENTS 2,-- Site: wp.ufpel.edu.br/labcee
+
+from pyepw.epw import Location, Comments1, Comments2, GroundTemperatures, GroundTemperature,
+TypicalOrExtremePeriods, TypicalOrExtremePeriod, EPW
+
+dry_bulb_temperature = open("dry_bulb_temperature.txt", "r")
+precipitable_water = open("precipitable_water.txt", "r")
+wind_direction = open("wind_direction.txt", "r")
+wind_speed = open("wind_speed.txt","r")
+relative_humidity = open("relative_humidity.txt", "r")
+atmospheric_pressure = open("atmospheric_pressure.txt ", "r")
+direct_normal_radiation = open("direct_normal_radiation.txt", "r")
+global_horizontal_radiation = open("global_horizontal_radiation.txt", "r")
+dew_point_temperature = open("dew_point_temperature.txt", "r")
+diffuse_horizontal_radiation = open("diffuse_horizontal_radiation.txt", "r")
+extraterrestrial_horizontal_radiation = open("extraterrestrial_horizontal_radiation.txt", "r")
+
+obj = Location()
+var_city = "Pelotas"
+obj.city = var_city
+var_state_province_region = "RS"
+obj.state_province_region = var_state_province_region
+var_country = "Brasil"
+obj.country = var_country
+var_source = "AGROMET"
+obj.source = var_source
+var_wmo = "wmo"
+obj.wmo = var_wmo
+var_latitude = float(-31.52)
+obj.latitude = var_latitude
+var_longitude = float(-52.21)
+obj.longitude = var_longitude
+var_timezone = float(-3)
+obj.timezone = var_timezone
+var_elevation = float(17)
+obj.elevation = var_elevation
+
+#-30.81,-51.83,-3.0,108.0
+
+obj1 = Comments1()
+obj1.comments_1 = "Desenvolvido pelo Laboratório de Conforto e Eficiência Energética (LABCEE)"
+obj2 = Comments2()
+obj2.comments_2 = "Site: wp.ufpel.edu.br/labcee"
+
+obj3 = GroundTemperatures()
+ground_temperature_obj3 = GroundTemperature()
+var_ground_temperature_ground_temperature_depth = 1
+ground_temperature_obj3.ground_temperature_depth = var_ground_temperature_ground_temperature_depth
+var_ground_temperature_depth_january_average_ground_temperature = 26.0
+ground_temperature_obj3.depth_january_average_ground_temperature = var_ground_temperature_depth_january_average_ground_temperature
+var_ground_temperature_depth_february_average_ground_temperature = 25.9
+ground_temperature_obj3.depth_february_average_ground_temperature = var_ground_temperature_depth_february_average_ground_temperature
+var_ground_temperature_depth_march_average_ground_temperature = 23.9
+ground_temperature_obj3.depth_march_average_ground_temperature = var_ground_temperature_depth_march_average_ground_temperature
+var_ground_temperature_depth_april_average_ground_temperature = 22.2 
+ground_temperature_obj3.depth_april_average_ground_temperature = var_ground_temperature_depth_april_average_ground_temperature
+var_ground_temperature_depth_may_average_ground_temperature = 19.1
+ground_temperature_obj3.depth_may_average_ground_temperature = var_ground_temperature_depth_may_average_ground_temperature
+var_ground_temperature_depth_june_average_ground_temperature = 16.4
+ground_temperature_obj3.depth_june_average_ground_temperature = var_ground_temperature_depth_june_average_ground_temperature
+var_ground_temperature_depth_july_average_ground_temperature = 16.3
+ground_temperature_obj3.depth_july_average_ground_temperature = var_ground_temperature_depth_july_average_ground_temperature
+var_ground_temperature_depth_august_average_ground_temperature = 16.1
+ground_temperature_obj3.depth_august_average_ground_temperature = var_ground_temperature_depth_august_average_ground_temperature
+var_ground_temperature_depth_september_average_ground_temperature = 17.5
+ground_temperature_obj3.depth_september_average_ground_temperature = var_ground_temperature_depth_september_average_ground_temperature
+var_ground_temperature_depth_october_average_ground_temperature = 19.8
+ground_temperature_obj3.depth_october_average_ground_temperature = var_ground_temperature_depth_october_average_ground_temperature
+var_ground_temperature_depth_november_average_ground_temperature = 22.9
+ground_temperature_obj3.depth_november_average_ground_temperature = var_ground_temperature_depth_november_average_ground_temperature
+var_ground_temperature_depth_december_average_ground_temperature = 24.3
+ground_temperature_obj3.depth_december_average_ground_temperature = var_ground_temperature_depth_december_average_ground_temperature
+obj3.add_ground_temperature(ground_temperature_obj3)
+
+obj4 = GroundTemperatures()
+ground_temperature_obj4 = GroundTemperature()
+var_ground_temperature_ground_temperature_depth = .5
+ground_temperature_obj4.ground_temperature_depth = var_ground_temperature_ground_temperature_depth
+var_ground_temperature_depth_january_average_ground_temperature = 26.8
+ground_temperature_obj4.depth_january_average_ground_temperature = var_ground_temperature_depth_january_average_ground_temperature
+var_ground_temperature_depth_february_average_ground_temperature =  26.4
+ground_temperature_obj4.depth_february_average_ground_temperature = var_ground_temperature_depth_february_average_ground_temperature
+var_ground_temperature_depth_march_average_ground_temperature = 24.0
+ground_temperature_obj4.depth_march_average_ground_temperature = var_ground_temperature_depth_march_average_ground_temperature
+var_ground_temperature_depth_april_average_ground_temperature = 21.7
+ground_temperature_obj4.depth_april_average_ground_temperature = var_ground_temperature_depth_april_average_ground_temperature
+var_ground_temperature_depth_may_average_ground_temperature = 17.9
+ground_temperature_obj4.depth_may_average_ground_temperature = var_ground_temperature_depth_may_average_ground_temperature
+var_ground_temperature_depth_june_average_ground_temperature = 15.4
+ground_temperature_obj4.depth_june_average_ground_temperature = var_ground_temperature_depth_june_average_ground_temperature
+var_ground_temperature_depth_july_average_ground_temperature = 15.4
+ground_temperature_obj4.depth_july_average_ground_temperature = var_ground_temperature_depth_july_average_ground_temperature
+var_ground_temperature_depth_august_average_ground_temperature = 15.6
+ground_temperature_obj4.depth_august_average_ground_temperature = var_ground_temperature_depth_august_average_ground_temperature
+var_ground_temperature_depth_september_average_ground_temperature = 17.3
+ground_temperature_obj4.depth_september_average_ground_temperature = var_ground_temperature_depth_september_average_ground_temperature
+var_ground_temperature_depth_october_average_ground_temperature = 20.4
+ground_temperature_obj4.depth_october_average_ground_temperature = var_ground_temperature_depth_october_average_ground_temperature
+var_ground_temperature_depth_november_average_ground_temperature = 24.0
+ground_temperature_obj4.depth_november_average_ground_temperature = var_ground_temperature_depth_november_average_ground_temperature
+var_ground_temperature_depth_december_average_ground_temperature = 25.2
+ground_temperature_obj4.depth_december_average_ground_temperature = var_ground_temperature_depth_december_average_ground_temperature
+obj4.add_ground_temperature(ground_temperature_obj4)
+
+obj5 = GroundTemperatures()
+ground_temperature_obj5 = GroundTemperature()
+var_ground_temperature_ground_temperature_depth = .2
+ground_temperature_obj5.ground_temperature_depth = var_ground_temperature_ground_temperature_depth
+var_ground_temperature_depth_january_average_ground_temperature = 27.7
+ground_temperature_obj5.depth_january_average_ground_temperature = var_ground_temperature_depth_january_average_ground_temperature
+var_ground_temperature_depth_february_average_ground_temperature =  26.8
+ground_temperature_obj5.depth_february_average_ground_temperature = var_ground_temperature_depth_february_average_ground_temperature
+var_ground_temperature_depth_march_average_ground_temperature = 24.1
+ground_temperature_obj5.depth_march_average_ground_temperature = var_ground_temperature_depth_march_average_ground_temperature
+var_ground_temperature_depth_april_average_ground_temperature = 21.3
+ground_temperature_obj5.depth_april_average_ground_temperature = var_ground_temperature_depth_april_average_ground_temperature
+var_ground_temperature_depth_may_average_ground_temperature = 17.1
+ground_temperature_obj5.depth_may_average_ground_temperature = var_ground_temperature_depth_may_average_ground_temperature
+var_ground_temperature_depth_june_average_ground_temperature = 14.8
+ground_temperature_obj5.depth_june_average_ground_temperature = var_ground_temperature_depth_june_average_ground_temperature
+var_ground_temperature_depth_july_average_ground_temperature = 15.2
+ground_temperature_obj5.depth_july_average_ground_temperature = var_ground_temperature_depth_july_average_ground_temperature
+var_ground_temperature_depth_august_average_ground_temperature = 15.5
+ground_temperature_obj5.depth_august_average_ground_temperature = var_ground_temperature_depth_august_average_ground_temperature
+var_ground_temperature_depth_september_average_ground_temperature = 17.0
+ground_temperature_obj5.depth_september_average_ground_temperature = var_ground_temperature_depth_september_average_ground_temperature
+var_ground_temperature_depth_october_average_ground_temperature = 21.3
+ground_temperature_obj5.depth_october_average_ground_temperature = var_ground_temperature_depth_october_average_ground_temperature
+var_ground_temperature_depth_november_average_ground_temperature = 25.2
+ground_temperature_obj5.depth_november_average_ground_temperature = var_ground_temperature_depth_november_average_ground_temperature
+var_ground_temperature_depth_december_average_ground_temperature = 25.9
+ground_temperature_obj5.depth_december_average_ground_temperature = var_ground_temperature_depth_december_average_ground_temperature
+obj5.add_ground_temperature(ground_temperature_obj5)
+
+epw = EPW(location=obj)
+epw = EPW(comments_1=obj1)
+epw = EPW(comments_2=obj2)
+
+
+epw.read(r"RS_Camaqua.epw")
+for wd in epw.weatherdata:
+	wd.year = 2014
+	wd.data_source_and_uncertainty_flags = "AGROMET"	
+	wd.dry_bulb_temperature = float(dry_bulb_temperature.readline())
+	wd.dew_point_temperature = float(dew_point_temperature.readline())
+	wd.atmospheric_station_pressure = float(atmospheric_pressure.readline())
+	wd.precipitable_water = float(precipitable_water.readline())
+	wd.wind_direction = float(wind_direction.readline())
+	wd.wind_speed = float(wind_speed.readline())
+	wd.relave_humidity = float(relative_humidity.readline())
+	wd.direct_normal_radiation = float(direct_normal_radiation.readline())
+	wd.extraterrestrial_horizontal_radiation = float(extraterrestrial_horizontal_radiation.readline())
+	wd.global_horizontal_radiation = float(global_horizontal_radiation.readline())
+	#print wd.global_horizontal_radiation
+	wd.diffuse_horizontal_radiation = float(diffuse_horizontal_radiation.readline())
+	
+#print cont
+
+epw.location  = obj
+epw.comments_1 = obj1
+epw.comments_2 = obj2
+epw.ground_temperatures.ground_temperatures[0] =  obj3
+epw.ground_temperatures.ground_temperatures[1] =  obj4
+epw.ground_temperatures.ground_temperatures[2] =  obj5
+
+epw.save(r"RS_Pelotas_Corrigido.epw",check=False) 
+
